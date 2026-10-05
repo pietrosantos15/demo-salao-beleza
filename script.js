@@ -11,7 +11,7 @@ const fmtPhone = n => {
 
 if (NOME) {
   document.querySelectorAll("[data-brand]").forEach(el => (el.textContent = NOME));
-  document.title = NOME + " | Rede de beleza feminina";
+  document.title = NOME + " | Salão feminino";
 }
 document.querySelectorAll("a[data-wa]").forEach(a => (a.href = waUrl(a.dataset.wa)));
 if (params.get("wa")) document.querySelectorAll("[data-phone]").forEach(el => (el.textContent = fmtPhone(WA)));
@@ -24,9 +24,7 @@ form.addEventListener("submit", e => {
   const err = document.getElementById("err");
   err.hidden = !!nome;
   if (!nome) return form.nome.focus();
-  const quem = f.get("prof") === "Qualquer uma" ? "com qualquer profissional" : `com a ${f.get("prof")}`;
-  const un = f.get("unidade");
-  const msg = `Olá! Sou ${nome}. Quero agendar ${f.get("servico")} na unidade ${un} ${quem}. Dia preferido: ${f.get("dia")}, ${f.get("turno")}. Tem horário?`;
+  const msg = `Olá! Sou ${nome}. Quero agendar ${f.get("servico")}. Dia preferido: ${f.get("dia")}, de ${f.get("turno")}. Tem horário?`;
   window.open(waUrl(msg), "_blank", "noopener");
 });
 

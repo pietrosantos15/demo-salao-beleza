@@ -1,35 +1,27 @@
-# Lumina Beauty: site de demonstração para salão de beleza feminino
+# Ateliê Alba: site de demonstração para salão feminino
 
-Site estático (HTML, CSS e JavaScript puro, sem build) que mostra a clientes como ficaria a página de uma rede de beleza moderna. Nome, preços, endereços e números são fictícios.
+Site estático (HTML, CSS e JavaScript puro, sem build) que mostra a clientes como ficaria a página de um salão de bairro premium. Nome, endereço, preços, equipe e depoimentos são fictícios.
 
 ## Inspiração
-Estilo de rede de beleza brasileira (promoção no topo, categorias de serviço, agendamento rápido, WhatsApp, assinatura mensal), inspirado em redes como Espaçolaser, Jacques Janine e Studio W. É "inspirado em", não cópia: nome, logotipo (SVG original), textos e ilustrações são próprios. Nenhuma imagem externa.
+Estrutura de landing de salões tradicionais e de captação local (Jacques Janine e salões de bairro com agendamento por WhatsApp): hero com foto, serviços com preço "a partir de", galeria, equipe, como agendar, endereço e horário, FAQ. Layout, textos e marca são próprios.
 
 ## Identidade
-- Cores: magenta `#E4007C`, roxo `#3B0A57` e `#5B1A7E`, off-white rosado `#FFF6FA`, amarelo de destaque `#FFD23F`. Gradiente magenta para roxo nos destaques.
-- Fonte: Plus Jakarta Sans (Google Fonts), com fallback para a fonte do sistema.
-- Cores no início do `style.css` (`:root`).
+- Paleta: verde-oliva `#2E3A2A`, blush `#E8C9C0`, creme `#FAF5EF`, dourado suave `#B98A5E` (início do `style.css`).
+- Fontes: Cormorant Garamond (títulos) e Jost (texto), via Google Fonts, com fallback.
+
+## Fotos
+O site funciona sem imagens (mostra uma arte de fundo). Para usar fotos reais do cliente, salve em `assets/`: `hero.jpg` (vertical 4:5), `g1.jpg` a `g6.jpg` (galeria). Use apenas fotos próprias ou com licença.
 
 ## Ver no ar
-No GitHub: **Settings > Pages > Deploy from a branch > `main` / `/ (root)`**. O link fica em `https://SEU-USUARIO.github.io/demo-salao-beleza/`.
+GitHub: **Settings > Pages > Deploy from a branch > `main` / `/ (root)`**.
 
-## Personalizar para um cliente sem editar código
-```
-https://SEU-USUARIO.github.io/demo-salao-beleza/?wa=5515991234567&nome=Studio%20da%20Cliente
-```
-- `wa`: número com código do país e DDD, só dígitos. Troca botões, formulário e telefone exibido.
-- `nome`: troca o nome da marca no topo, no rodapé e na aba do navegador.
+## Personalizar sem editar código
+`?wa=5515991234567&nome=Studio%20da%20Cliente`
+- `wa`: WhatsApp com código do país e DDD, só dígitos.
+- `nome`: troca o nome da marca.
 
-## Checklist de entrega ao cliente
-- [ ] Número do WhatsApp: busque `5500900000000` e `(00) 90000-0000`.
-- [ ] Nome, logotipo (SVG `#i-logo` no `index.html`) e cores da marca do cliente.
-- [ ] Endereços, horários e unidades reais (seção Unidades e opções do formulário).
-- [ ] Serviços, planos do Clube e preços reais (ou remova a seção de planos).
-- [ ] Promoção da faixa do topo e selo de preço do hero.
-- [ ] Números da faixa "ilustrativos": troque pelos reais ou remova.
-- [ ] Profissionais do formulário: nomes reais.
-- [ ] Perguntas frequentes revisadas.
-- [ ] Remova a frase "Site de demonstração" do rodapé.
-
-## Arquivos
-`index.html` (conteúdo) · `style.css` (visual) · `script.js` (WhatsApp, parâmetros do link e formulário)
+## Checklist de entrega
+- [ ] WhatsApp: busque `5500900000000` e `(00) 90000-0000`.
+- [ ] Nome, monograma, cores, endereço, horários.
+- [ ] Serviços e preços reais; equipe e depoimentos reais (ou remova).
+- [ ] Fotos reais em `assets/`; remova o "*Nota do Google" e a frase "Site de demonstração".
