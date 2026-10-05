@@ -1,4 +1,4 @@
-/* Personalização por link: ?wa=5511999998888&nome=Nome%20do%20Salão */
+/* Personalização por link: ?wa=5511999998888&nome=Nome%20da%20Marca */
 const params = new URLSearchParams(location.search);
 const WA = (params.get("wa") || "5500900000000").replace(/\D/g, "");
 const NOME = params.get("nome");
@@ -11,7 +11,7 @@ const fmtPhone = n => {
 
 if (NOME) {
   document.querySelectorAll("[data-brand]").forEach(el => (el.textContent = NOME));
-  document.title = NOME + " | Salão de beleza feminino";
+  document.title = NOME + " | Rede de beleza feminina";
 }
 document.querySelectorAll("a[data-wa]").forEach(a => (a.href = waUrl(a.dataset.wa)));
 if (params.get("wa")) document.querySelectorAll("[data-phone]").forEach(el => (el.textContent = fmtPhone(WA)));
@@ -25,6 +25,14 @@ form.addEventListener("submit", e => {
   err.hidden = !!nome;
   if (!nome) return form.nome.focus();
   const quem = f.get("prof") === "Qualquer uma" ? "com qualquer profissional" : `com a ${f.get("prof")}`;
-  const msg = `Olá! Sou ${nome}. Quero agendar ${f.get("servico")} ${quem}. Dia preferido: ${f.get("dia")}, ${f.get("turno")}. Tem horário?`;
+  const un = f.get("unidade");
+  const msg = `Olá! Sou ${nome}. Quero agendar ${f.get("servico")} na unidade ${un} ${quem}. Dia preferido: ${f.get("dia")}, ${f.get("turno")}. Tem horário?`;
   window.open(waUrl(msg), "_blank", "noopener");
 });
+
+/* Cards de categoria e planos: pré-selecionam o serviço no formulário */
+document.querySelectorAll("a[data-s]").forEach(a =>
+  a.addEventListener("click", () => {
+    const sel = form.servico;
+    if ([...sel.options].some(o => o.text === a.dataset.s)) sel.value = a.dataset.s;
+  }));
